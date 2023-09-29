@@ -1,8 +1,8 @@
 import { QueryInterface, DataTypes, Model } from 'sequelize';
-import ITem from '../../Interfaces/Team-int';
+import teamInt from '../../Interfaces/Team-int';
 export default {
-  up: async (queryInterface: QueryInterface) => {
-    return queryInterface.createTable<Model<ITem>>('teams', {
+  up(queryInterface: QueryInterface) {
+    return queryInterface.createTable<Model<teamInt>>('teams', {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -17,7 +17,7 @@ export default {
     });
   },
 
-  down: (queryInterface: QueryInterface) => {
+  down(queryInterface: QueryInterface) {
     return queryInterface.dropTable('teams');
   },
 };

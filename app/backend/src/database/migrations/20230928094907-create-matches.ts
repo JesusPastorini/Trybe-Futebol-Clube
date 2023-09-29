@@ -1,38 +1,44 @@
-import { QueryInterface, DataTypes } from 'sequelize';
+import { QueryInterface, DataTypes, Model } from 'sequelize';
+import MatchesInt from '../../Interfaces/Matches-int';
 
-module.exports = {
-  up: async (queryInterface: QueryInterface) => {
-    await queryInterface.createTable('matches', {
+export default {
+  up(queryInterface: QueryInterface) {
+    return queryInterface.createTable<Model<MatchesInt>>('matches', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
-      home_team_id: {
+      homeTeamId: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        field: 'home_team_id',
       },
-      home_team_goals: {
+      homeTeamGoals: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        field: 'home_team_goals',
       },
-      away_team_id: {
+      awayTeamId: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        field: 'away_team_id',
       },
-      away_team_goals: {
+      awayTeamGoals: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        field: 'away_team_goals',
       },
-      in_progress: {
+      inProgress: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
+        field: 'in_progress',
       },
     });
   },
 
-  down: async (queryInterface: QueryInterface) => {
-    await queryInterface.dropTable('matches');
+  down(queryInterface: QueryInterface) {
+    return queryInterface.dropTable('matches');
   },
 };
