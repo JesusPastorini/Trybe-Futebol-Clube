@@ -30,7 +30,7 @@ Team.init(
     sequelize: db,
     modelName: 'Team',
     timestamps: false,
-  }
+  },
 );
 
 export default Team;
