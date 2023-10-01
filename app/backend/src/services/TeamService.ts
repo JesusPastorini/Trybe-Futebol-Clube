@@ -9,6 +9,15 @@ class TeamService {
       throw new Error('Error fetching teams');
     }
   }
+
+  public static async getTeamById(id: number): Promise<Team | null> {
+    try {
+      const team = await Team.findByPk(id);
+      return team;
+    } catch (error) {
+      throw new Error('Error fetching team by ID');
+    }
+  }
 }
 
 export default TeamService;
