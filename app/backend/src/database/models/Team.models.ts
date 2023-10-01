@@ -23,13 +23,13 @@ Team.init(
     },
     teamName: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
   },
   {
     sequelize: db,
-    modelName: 'Team',
+    modelName: 'teams',
     timestamps: false,
+    underscored: true,
   },
 );
 
