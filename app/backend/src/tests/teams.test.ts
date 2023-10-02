@@ -1,10 +1,10 @@
 import * as chai from 'chai';
+import * as sinon from 'sinon';
 // @ts-ignore
 import chaiHttp = require('chai-http');
 import { app } from '../app';
 import TeamController from '../controllers/TeamController';
 import TeamService from '../services/TeamService';
-import sinon from 'sinon';
 
 chai.use(chaiHttp);
 const { expect } = chai;
