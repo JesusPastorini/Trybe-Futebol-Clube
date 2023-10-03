@@ -11,7 +11,7 @@ class LoginService {
 
     const user = await User.findOne({ where: { email } });
 
-    if (!user) return null;
+    if (!user || password.length < 6) return null;
 
     if (await bcrypt.compare(password, user.password)) {
       const token = jwt.sign({ id: user.id, role: user.role }, 'secreto', { expiresIn: '1h' });
