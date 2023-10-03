@@ -4,6 +4,11 @@ import User from '../database/models/Users.models';
 
 class LoginService {
   public static async authenticate(email: string, password: string): Promise<string | null> {
+    const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+    if (!emailRegex.test(email)) {
+      return null;
+    }
+
     const user = await User.findOne({ where: { email } });
 
     if (!user) return null;

@@ -14,7 +14,7 @@ class LoginController {
     const token = await LoginService.authenticate(email, password);
 
     if (!token) {
-      res.status(401).json({ message: 'Invalid credentials' });
+      res.status(401).json({ message: 'Invalid email or password' });
       return;
     }
 
