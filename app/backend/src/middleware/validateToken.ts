@@ -4,12 +4,12 @@ import User from '../database/models/Users.models';
 
 const jwtSecret: string = process.env.JWT_SECRET || '';
 export default function validateToken(req: Request, res: Response, next: NextFunction): void {
-  const token = req.headers.authorization?.split(' ')[1]; // Pega o token do cabeçalho
-
-  if (!token) {
+  const { authorization } = req.headers;
+  if (!authorization) {
     res.status(401).json({ message: 'Token not found' });
     return;
   }
+  const token = authorization.split(' ')[1]; // Pega o token do cabeçalho
 
   jwt.verify(token, jwtSecret, async (err, decoded) => {
     if (err) {
