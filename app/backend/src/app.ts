@@ -1,5 +1,7 @@
 import * as express from 'express';
 import router from './routes';
+import LoginRoleController from './controllers/loginRoleController';
+import authMiddleware from './middleware/authMiddleware';
 
 class App {
   public app: express.Express;
@@ -29,6 +31,8 @@ class App {
   private routes():void {
     this.app.use('/teams', router.teamsRouter);
     this.app.use('/login', router.loginRouter);
+
+    this.app.get('/login/role', authMiddleware, LoginRoleController.getRole);
   }
 
   public start(PORT: string | number): void {
