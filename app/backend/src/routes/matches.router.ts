@@ -6,6 +6,6 @@ import FinishMatchController from '../controllers/FinishMatchController';
 const router = Router();
 
 router.get('/', MatchesController.getAllMatches);
-router.patch('/matches/:id/finish', validateToken, FinishMatchController.finishMatch);
+router.patch('/:id/finish', validateToken, FinishMatchController.finishMatch);
 
 export default router;
