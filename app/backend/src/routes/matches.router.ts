@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import MatchesController from '../controllers/MatchesController';
 import validateToken from '../middleware/validateToken';
-import FinishMatchController from '../controllers/FinishMatchController'
+import FinishMatchController from '../controllers/FinishMatchController';
 
 const router = Router();
 
