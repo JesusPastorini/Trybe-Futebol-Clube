@@ -33,6 +33,8 @@ class App {
     this.app.use('/login', router.loginRouter);
 
     this.app.get('/login/role', validateToken, LoginRoleController.getRole);
+
+    this.app.use('/matches', router.matchesRouter);
   }
 
   public start(PORT: string | number): void {
