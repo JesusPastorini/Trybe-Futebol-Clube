@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
-import LeaderboardModel from '../models/LeaderboardModel';
+import LeaderboardService from '../services/LeaderboardService';
 
 class LeaderboardHomeController {
   public static async getHomeTeamLeaderboard(req: Request, res: Response): Promise<void> {
     try {
-      const leaderboardData = await LeaderboardModel.getHomeTeamLeaderboard();
+      const leaderboardData = await LeaderboardService.getHomeTeamLeaderboard();
       res.json(leaderboardData);
     } catch (error) {
       console.error(error);

@@ -2,7 +2,7 @@ import Matche from '../database/models/Matches.models';
 import Team from '../database/models/Team.models';
 import LeaderboardEntry from '../Interfaces/Leaderboard-int';
 
-export default class LeaderboardModel {
+export default class LeaderboardService {
   private static async getTeamLeaderboardEntry(team: Team): Promise<LeaderboardEntry> {
     const homeMatch = await Matche.findAll({ where: { homeTeamId: team.id, inProgress: false } });
 
