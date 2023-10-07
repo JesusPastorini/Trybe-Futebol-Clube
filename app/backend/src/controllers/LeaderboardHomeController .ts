@@ -4,8 +4,8 @@ import LeaderboardService from '../services/LeaderboardService';
 class LeaderboardHomeController {
   public static async getHomeTeamLeaderboard(req: Request, res: Response): Promise<void> {
     try {
-      const leaderboardData = await LeaderboardService.getHomeTeamLeaderboard();
-      leaderboardData.sort((a, b) => {
+      const data = await LeaderboardService.getHomeTeamLeaderboard();
+      data.sort((a, b) => {
         // Primeiro, compare o total de pontos
         if (b.totalPoints !== a.totalPoints) return b.totalPoints - a.totalPoints;
 
@@ -22,7 +22,7 @@ class LeaderboardHomeController {
         // Se ainda houver empate, compare o nome dos times (ordem alfabética)
         return a.name.localeCompare(b.name);
       });
-      res.json(leaderboardData);
+      res.status(200).json(data);
     } catch (error) {
       res.status(500).json({ message: 'Internal server error' });
     }

@@ -7,7 +7,7 @@ export default class LeaderBoardModel {
       where: {
         [Op.or]: [
           { homeTeamId: teamId, inProgress: false },
-          { awayTeamId: teamId, inProgress: false },
+
         ],
       },
     });
