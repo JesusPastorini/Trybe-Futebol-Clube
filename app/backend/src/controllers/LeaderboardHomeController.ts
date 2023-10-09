@@ -3,7 +3,7 @@ import LeaderboardService from '../services/LeaderboardService';
 
 class LeaderboardHomeController {
   public static async getHomeTeamLeaderboard(req: Request, res: Response): Promise<void> {
-    try {
+  
       const data = await LeaderboardService.getHomeTeamLeaderboard();
       data.sort((a, b) => {
         // Primeiro, compare o total de pontos
@@ -23,9 +23,6 @@ class LeaderboardHomeController {
         return a.name.localeCompare(b.name);
       });
       res.status(200).json(data);
-    } catch (error) {
-      res.status(500).json({ message: 'Internal server error' });
-    }
   }
 }
 export default LeaderboardHomeController;
