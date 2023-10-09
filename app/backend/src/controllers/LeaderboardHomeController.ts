@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import LeaderboardService from '../services/LeaderboardService';
 
 class LeaderboardHomeController {
-  public static async getHomeTeamLeaderboard(req: Request, res: Response): Promise<void> {
+  public static async getHomeTeamLeaderboard(req: Request, res: Response): Promise<Response> {
   
       const data = await LeaderboardService.getHomeTeamLeaderboard();
       data.sort((a, b) => {
@@ -22,7 +22,7 @@ class LeaderboardHomeController {
         // Se ainda houver empate, compare o nome dos times (ordem alfabética)
         return a.name.localeCompare(b.name);
       });
-      res.status(200).json(data);
+      return res.status(200).json(data);
   }
 }
 export default LeaderboardHomeController;
