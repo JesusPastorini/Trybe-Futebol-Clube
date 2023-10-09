@@ -18,7 +18,7 @@ class LeaderboardHomeController {
         return b.goalsFavor - a.goalsFavor;
       }
 
-      // Se ainda houver empate, compare o nome dos times (ordem alfabética)
+      // Se ainda houver empate, compare o nome dos times ordem alfabética
       return a.name.localeCompare(b.name);
     });
     return res.status(200).json(data);
