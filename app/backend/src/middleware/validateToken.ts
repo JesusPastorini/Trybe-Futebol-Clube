@@ -13,8 +13,7 @@ export default function validateToken(req: Request, res: Response, next: NextFun
 
   jwt.verify(token, jwtSecret, async (err, decoded) => {
     if (err) {
-      res.status(401).json({ message: 'Token must be a valid token' });
-      return;
+      return res.status(401).json({ message: 'Token must be a valid token' });
     }
     const userId = (decoded as { id: number }).id;
     const user = await User.findByPk(userId);
