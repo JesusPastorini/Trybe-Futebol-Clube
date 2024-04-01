@@ -2,11 +2,11 @@
 
 ## 📷 Fotos do Projeto
 
-![Foto do Projeto](link_para_a_foto_do_projeto.jpg)
+![Foto do Projeto](app/front-example.png)
 
 ## 📊 Diagrama de Relacionamento
 
-![Diagrama de Relacionamento](link_para_o_diagrama.jpg)
+![Diagrama de Relacionamento](app/diagrama-er.png)
 
 ## ℹ️ Sobre o Projeto
 
